@@ -380,13 +380,13 @@ namespace JoyCar {
     //% weight=90
     export function linefinder(selection: SensorLCRSelection) {
       if(selection == SensorLCRSelection.Left){
-        return sensorData(5);
+        return sensorData(2);
       }
       else if(selection == SensorLCRSelection.Center){
-        return sensorData(4);
+        return sensorData(3);
       }
       else {
-        return sensorData(3);
+        return sensorData(4);
       }
     }
     /**
@@ -397,10 +397,10 @@ namespace JoyCar {
     //% weight=80
     export function obstacleavoidance(selection: SensorLRSelection) {
       if(selection == SensorLRSelection.Left){
-        return sensorData(2);
+        return sensorData(5);
       }
       else {
-        return sensorData(1);
+        return sensorData(6);
       }
     }
 
@@ -412,10 +412,10 @@ namespace JoyCar {
     //% weight=70
     export function speed(selection: SensorLRSelection) {
       if(selection == SensorLRSelection.Left){
-        return sensorData(7);
+        return sensorData(0);
       }
       else {
-        return sensorData(6);
+        return sensorData(1);
       }
     }
 
@@ -483,9 +483,10 @@ namespace JoyCar {
       let expander = pins.i2cReadBuffer(56, 1, true);
       let bin = [];
       while(expander[0] > 0) {
-        bin.unshift(expander[0] % 2);
+        bin.push(expander[0] % 2);
         expander[0] >>= 1;
       }
+
       return !(!!bin[bit]);
     }
 

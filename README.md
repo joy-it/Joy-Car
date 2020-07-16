@@ -1,7 +1,7 @@
 # MakeCode Package for Joy-IT Joy-Car
 
 This library provides a Microsoft Makecode package for the Joy-IT Joy-Car.
-See https://joy-it.net/en/products/mb-joy-car/ for more details.
+See https://joy-it.net/en/products/mb-joy-car for more details.
 
 ## Driving
 You can drive the Joy-Car forwards or backwards by using the `drive(...)` block. Within this block you specify the direction aswell as the speed in percent from 0 to 100.

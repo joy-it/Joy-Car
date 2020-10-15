@@ -1,6 +1,6 @@
 {
   "FRDirection.Forward|block": "Vor",
-  "FRDirection.Reverse|block": "Zur\\ück",
+  "FRDirection.Reverse|block": "Zurück",
   "JoyCar.bias|block": "Motorverz\\ögerung %direction um %percent\\%",
   "JoyCar.brakelight|block": "Bremslicht %toggle",
   "JoyCar.buzzer|block": "Spiele Musik %melody wiederhole %options",

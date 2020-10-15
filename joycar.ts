@@ -449,20 +449,20 @@ namespace JoyCar {
     function driveJoyCar(ch2: number, ch3: number, ch4: number, ch5: number){
       // Map PWM numbers to working range of motors
       if(ch2 > 0){
-        ch2 = ch2 * (biasL/100);
-        ch2 = scale(ch2, 0, 255, 30, 255);
+        ch2 = ch2 * (biasR/100);
+        ch2 = scale(ch2, 0, 255, 80, 255);
       }
       if(ch3 > 0){
-        ch3 = ch3 * (biasL/100);
-        ch3 = scale(ch3, 0, 255, 30, 255);
+        ch3 = ch3 * (biasR/100);
+        ch3 = scale(ch3, 0, 255, 80, 255);
       }
       if(ch4 > 0){
-        ch4 = ch4 * (biasR/100);
-        ch4 = scale(ch4, 0, 255, 30, 255);
+        ch4 = ch4 * (biasL/100);
+        ch4 = scale(ch4, 0, 255, 80, 255);
       }
       if(ch5 > 0){
-        ch5 = ch5 * (biasR/100);
-        ch5 = scale(ch5, 0, 255, 30, 255);
+        ch5 = ch5 * (biasL/100);
+        ch5 = scale(ch5, 0, 255, 80, 255);
       }
       pwmBuffer.setNumber(NumberFormat.UInt8LE, 0, 2);
       pwmBuffer.setNumber(NumberFormat.UInt8LE, 1, ch2);

@@ -126,10 +126,10 @@ namespace JoyCar {
       if(orientation == FRDirection.Forward){
         //Forwards
         if(direction == LRDirection.Left){
-            driveJoyCar(0, innerWheelSpeed, 0, pwmSpeed);
+            driveJoyCar(0, pwmSpeed, 0, innerWheelSpeed);
         }
         else {
-            driveJoyCar(0, pwmSpeed, 0, innerWheelSpeed);
+            driveJoyCar(0, innerWheelSpeed, 0, pwmSpeed);
         }
       }
       else {

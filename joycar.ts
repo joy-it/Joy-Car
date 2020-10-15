@@ -340,15 +340,13 @@ namespace JoyCar {
     //% subcategory=LEDs
     //% weight=60
     export function reversinglight(toggle: ToggleSwitch) {
-        if(toggle == ToggleSwitch.On){
-            strip.setPixelColor(5, 0xffffff);
-            strip.setPixelColor(6, 0xffffff);
-        }
-        else {
-            strip.setPixelColor(5, 0x000000);
-            strip.setPixelColor(6, 0x000000);
-        }
-        strip.show();
+      if(toggle == ToggleSwitch.On){
+        strip.setPixelColor(6, 0xffffff);
+      }
+      else {
+        strip.setPixelColor(6, 0x000000);
+      }
+      strip.show();
     }
 
 

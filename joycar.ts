@@ -187,10 +187,10 @@ namespace JoyCar {
     //% weight=50
     //% percent.min=0 percent.max=100
     export function bias(direction: LRDirection, percent: number) {
-      if(direction = LRDirection.Left){
+      if(direction == LRDirection.Left){
         biasL = scale(percent, 0, 100, 100, 0);
       }
-      else {
+      else if(direction == LRDirection.Right) {
         biasR = scale(percent, 0, 100, 100, 0);
       }
     }

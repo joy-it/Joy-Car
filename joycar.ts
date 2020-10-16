@@ -72,12 +72,23 @@ enum SensorLRSelection
 namespace JoyCar {
     // Light Variables
     let strip = neopixel.create(DigitalPin.P0, 8, NeoPixelMode.RGB);
-    let lastIndicator = 0;
-    let indicatorBool = false;
-    let lastHazard = 0;
-    let hazardBool = false;
+
     let biasL = 100;
     let biasR = 100;
+
+    // Global Light Settings
+    let lightGlobalInterval = 0;
+    let lightIndicatorInterval = 0;
+    let headlights = false;
+    let breakLights = false;
+    let reverseLight = false;
+    let indicatorLeft = false;
+    let indicatorRight = false;
+    let hazard = false;
+
+    let hazardBool = false;
+    let indicatorLeftBool = false;
+    let indicatorRightBool = false;
 
     //Motor init
     let pwmBuffer = pins.createBuffer(2);
@@ -216,19 +227,13 @@ namespace JoyCar {
     //% subcategory=LEDs
     //% weight=100
     export function light(toggle: ToggleSwitch) {
-        if(toggle == ToggleSwitch.On){
-            strip.setPixelColor(0, 0xB2B2B2);
-            strip.setPixelColor(3, 0xB2B2B2);
-            strip.setPixelColor(5, 0xB30000);
-            strip.setPixelColor(6, 0xB30000);
-        }
-        else {
-            strip.setPixelColor(0, 0x000000);
-            strip.setPixelColor(3, 0x000000);
-            strip.setPixelColor(5, 0x000000);
-            strip.setPixelColor(6, 0x000000);
-        }
-        strip.show();
+      if(toggle == ToggleSwitch.On){
+        headlights = true;
+      }
+      else {
+        headlights = false;
+      }
+      setLights();
     }
 
     /**
@@ -239,14 +244,12 @@ namespace JoyCar {
     //% weight=90
     export function brakelight(toggle: ToggleSwitch) {
         if(toggle == ToggleSwitch.On){
-            strip.setPixelColor(5, 0xff0000);
-            strip.setPixelColor(6, 0xff0000);
+          breakLights = true;
         }
         else {
-            strip.setPixelColor(5, 0x000000);
-            strip.setPixelColor(6, 0x000000);
+          breakLights = false;
         }
-        strip.show();
+        setLights();
     }
 
     /**
@@ -256,47 +259,23 @@ namespace JoyCar {
     //% subcategory=LEDs
     //% weight=80
     export function indicator(toggle: ToggleSwitch, selection: SensorLRSelection) {
-        if(toggle == ToggleSwitch.On){
-            if(selection == SensorLRSelection.Left){
-                if((input.runningTime() - lastIndicator >= 400) && !indicatorBool){
-                    strip.setPixelColor(1, 0xff7200);
-                    strip.setPixelColor(4, 0xff7200);
-                    indicatorBool = true;
-                    lastIndicator = input.runningTime();
-                }
-                else if((input.runningTime() - lastIndicator >= 400) && indicatorBool){
-                    strip.setPixelColor(1, 0x00000);
-                    strip.setPixelColor(4, 0x00000);
-                    indicatorBool = false;
-                    lastIndicator = input.runningTime();
-                }
-            }
-            else if(selection == SensorLRSelection.Right){
-                if((input.runningTime() - lastIndicator >= 400) && !indicatorBool){
-                    strip.setPixelColor(2, 0xff7200);
-                    strip.setPixelColor(7, 0xff7200)
-                    indicatorBool = true;
-                    lastIndicator = input.runningTime();
-                }
-                else if((input.runningTime() - lastIndicator >= 400) && indicatorBool){
-                    strip.setPixelColor(2, 0x00000);
-                    strip.setPixelColor(7, 0x00000);
-                    indicatorBool = false;
-                    lastIndicator = input.runningTime();
-                }
-            }
+      if(toggle == ToggleSwitch.On) {
+        if(selection == SensorLRSelection.Left) {
+          indicatorLeft = true;
         }
-        else {
-            if(selection == SensorLRSelection.Left){
-                strip.setPixelColor(1, 0x000000);
-                strip.setPixelColor(4, 0x000000);
-            }
-            if(selection == SensorLRSelection.Right){
-                strip.setPixelColor(2, 0x000000);
-                strip.setPixelColor(7, 0x000000);
-            }
+        if(selection == SensorLRSelection.Right) {
+          indicatorRight = true;
         }
-        strip.show();
+      }
+      else {
+        if(selection == SensorLRSelection.Left) {
+          indicatorLeft = false;
+        }
+        if(selection == SensorLRSelection.Right) {
+          indicatorRight = false;
+        }
+      }
+      setLights();
     }
 
     /**
@@ -306,31 +285,13 @@ namespace JoyCar {
     //% subcategory=LEDs
     //% weight=70
     export function hazardlights(toggle: ToggleSwitch) {
-        if(toggle == ToggleSwitch.On){
-            if((input.runningTime() - lastHazard >= 400) && !hazardBool){
-                strip.setPixelColor(1, 0xff7200);
-                strip.setPixelColor(2, 0xff7200);
-                strip.setPixelColor(4, 0xff7200);
-                strip.setPixelColor(7, 0xff7200);
-                hazardBool = true;
-                lastHazard = input.runningTime();
-            }
-            else if((input.runningTime() - lastHazard >= 400) && hazardBool){
-                strip.setPixelColor(1, 0x00000);
-                strip.setPixelColor(2, 0x00000);
-                strip.setPixelColor(4, 0x00000);
-                strip.setPixelColor(7, 0x00000);
-                hazardBool = false;
-                lastHazard = input.runningTime();
-            }
-        }
-        else {
-            strip.setPixelColor(1, 0x00000);
-            strip.setPixelColor(2, 0x00000);
-            strip.setPixelColor(4, 0x00000);
-            strip.setPixelColor(7, 0x00000);
-        }
-        strip.show();
+      if(toggle == ToggleSwitch.On){
+        hazard = true;
+      }
+      else {
+        hazard = false;
+      }
+      setLights();
     }
 
     /**
@@ -341,12 +302,12 @@ namespace JoyCar {
     //% weight=60
     export function reversinglight(toggle: ToggleSwitch) {
       if(toggle == ToggleSwitch.On){
-        strip.setPixelColor(6, 0xffffff);
+        reverseLight = true;
       }
       else {
-        strip.setPixelColor(6, 0x000000);
+        reverseLight = false;
       }
-      strip.show();
+      setLights();
     }
 
 
@@ -443,6 +404,108 @@ namespace JoyCar {
     }
 
     // ------------------------------------------------------------
+    // Light controller
+    function setLights(){
+      // Check last execution time to filter multiple execution bounces
+      if(input.runningTime() - lightGlobalInterval >= 50) {
+        strip.setPixelColor(0, 0x000000);
+        strip.setPixelColor(1, 0x000000);
+        strip.setPixelColor(2, 0x000000);
+        strip.setPixelColor(3, 0x000000);
+        strip.setPixelColor(4, 0x000000);
+        strip.setPixelColor(5, 0x000000);
+        strip.setPixelColor(6, 0x000000);
+        strip.setPixelColor(7, 0x000000);
+
+        if(headlights) {
+          strip.setPixelColor(0, 0x808080);
+          strip.setPixelColor(3, 0x808080);
+          strip.setPixelColor(5, 0x500000);
+          strip.setPixelColor(6, 0x500000);
+        }
+        if(breakLights) {
+          strip.setPixelColor(5, 0xff0000);
+          strip.setPixelColor(6, 0xff0000);
+        }
+        if(reverseLight) {
+          strip.setPixelColor(6, 0x808080);
+        }
+
+        if(hazard || indicatorLeft || indicatorRight) {
+          if(indicatorLeft){
+            if(!indicatorLeftBool){
+              strip.setPixelColor(1, 0xff7200);
+              strip.setPixelColor(4, 0xff7200);
+              strip.setPixelColor(2, 0x000000);
+              strip.setPixelColor(7, 0x000000);
+              if(input.runningTime() - lightIndicatorInterval >= 400) {
+                indicatorLeftBool = true;
+                lightIndicatorInterval = input.runningTime();
+              }
+            }
+            else {
+              strip.setPixelColor(1, 0x000000);
+              strip.setPixelColor(4, 0x000000);
+              strip.setPixelColor(2, 0x000000);
+              strip.setPixelColor(7, 0x000000);
+              if(input.runningTime() - lightIndicatorInterval >= 400) {
+                indicatorLeftBool = false;
+                lightIndicatorInterval = input.runningTime();
+              }
+            }
+          }
+          else if(indicatorRight){
+            if(!indicatorRightBool){
+              strip.setPixelColor(2, 0xff7200);
+              strip.setPixelColor(7, 0xff7200);
+              strip.setPixelColor(1, 0x000000);
+              strip.setPixelColor(4, 0x000000);
+              if(input.runningTime() - lightIndicatorInterval >= 400) {
+                indicatorRightBool = true;
+                lightIndicatorInterval = input.runningTime();
+              }
+            }
+            else {
+              strip.setPixelColor(2, 0x000000);
+              strip.setPixelColor(7, 0x000000);
+              strip.setPixelColor(1, 0x000000);
+              strip.setPixelColor(4, 0x000000);
+              if(input.runningTime() - lightIndicatorInterval >= 400) {
+                indicatorRightBool = false;
+                lightIndicatorInterval = input.runningTime();
+              }
+            }
+          }
+          else if(hazard) {
+            if(!hazardBool) {
+              strip.setPixelColor(1, 0xff7200);
+              strip.setPixelColor(2, 0xff7200);
+              strip.setPixelColor(4, 0xff7200);
+              strip.setPixelColor(7, 0xff7200);
+              if(input.runningTime() - lightIndicatorInterval >= 400) {
+                hazardBool = true;
+                lightIndicatorInterval = input.runningTime();
+              }
+            }
+            else {
+              strip.setPixelColor(1, 0x000000);
+              strip.setPixelColor(2, 0x000000);
+              strip.setPixelColor(4, 0x000000);
+              strip.setPixelColor(7, 0x000000);
+              if(input.runningTime() - lightIndicatorInterval >= 400) {
+                hazardBool = false;
+                lightIndicatorInterval = input.runningTime();
+              }
+            }
+          }
+        }
+
+        lightGlobalInterval = input.runningTime();
+      }
+
+      strip.show();
+    }
+
     // Drive controller
     function driveJoyCar(ch2: number, ch3: number, ch4: number, ch5: number){
       // Map PWM numbers to working range of motors

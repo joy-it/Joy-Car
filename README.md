@@ -120,14 +120,14 @@ JoyCar.reversinglight(ToggleSwitch.Off)
 
 ## Ultrasonic Sensor
 Check the ultrasonic sensor with `sonar()`. The return value is the distance to the closest object measured from the sensor. The sensor is connected to the pins P12 (echo) and P8 (trigger) of the micro:bit.
-```block
+```typescript
 // Measure distance
 JoyCar.sonar()
 ```
 
 ## Linefinder Sensor
 Check the linefinder sensors with `linefinder(...)`. The function returns true if a line was detected. The sensors are connected to channel 3, 4 & 5 of the IO-Expander.
-```block
+```typescript
 // Check the left Linefinder Sensor
 JoyCar.linefinder(SensorLCRSelection.Left)
 
@@ -140,7 +140,7 @@ JoyCar.linefinder(SensorLCRSelection.Right)
 
 ## Obstacle Sensor
 Check the obstacle sensors with `obstacleavoidance(...)`. The function returns true if an obstacle was detected. The sensors are connected to channel 1 & 2 of the IO-Expander.
-```block
+```typescript
 // Check left obstacle sensor
 JoyCar.obstacleavoidance(SensorLRSelection.Left)
 
@@ -150,7 +150,7 @@ JoyCar.obstacleavoidance(SensorLRSelection.Right)
 
 ## Speed Sensor
 Check the speed sensors with `speed(...)`. The function returns true if the light is interrupted by the perforated disc on the motor.
-```block
+```typescript
 // Check left speed sensor
 JoyCar.speed(SensorLRSelection.Left)
 
@@ -160,7 +160,7 @@ JoyCar.speed(SensorLRSelection.Right)
 
 ## Buzzer
 Play predefined melodies with the buzzer with `buzzer()`. You can also specifiy repeat options.
-```block
+```typescript
 // Play the Dadadadum Sound once
 JoyCar.buzzer(Melodies.Dadadadum, MelodyOptions.Once)
 
@@ -170,7 +170,7 @@ JoyCar.buzzer(Melodies.Nyan, MelodyOptions.Forever)
 
 ## Read Battery Voltage
 Read the current battery voltage from the ADC on the AnalogPin2 by using `readAdc()`.
-```block
+```typescript
 // Print battery voltage to console
 serial.writeString(JoyCar.readAdc());
 ```

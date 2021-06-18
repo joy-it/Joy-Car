@@ -6,7 +6,7 @@ See https://joy-it.net/en/products/mb-joy-car for more details.
 ## Driving
 You can drive the Joy-Car forwards or backwards by using the `drive(...)` block. Within this block you specify the direction aswell as the speed in percent from 0 to 100.
 Both motors will be driven in the selected direction with the selected speed.
-```blocks
+```typescript
 // Move the Joy-Car forwards at 100% speed
 JoyCar.drive(FRDirection.Forward, 100)
 
@@ -18,7 +18,7 @@ JoyCar.drive(FRDirection.Reverse, 40)
 You can use the `turn(...)` block to drive forwards or backwards in combination with turning left or right.
 You can specify the orientation (forward, reverse), direction (left, right) aswell as the speed (0 - 100%) and the size of the curve-radius (0-5).
 The larger the curve-radius the wider the turn will be (0 = very sharp turn, 5 = very wide turn).
-```blocks
+```typescript
 // Turn forwards and left with 100% speed and a very sharp curve
 JoyCar.turn(FRDirection.Forward, LRDirection.Left, 100, 0)
 
@@ -28,7 +28,7 @@ JoyCar.turn(FRDirection.Reverse, LRDirection.Right, 50, 5)
 
 ## Stopping
 Use `stop(...)` to either brake with an intense stop or with declining speed.
-```blocks
+```typescript
 // Intense Stop
 JoyCar.stop(StopIntensity.Intense)
 
@@ -38,7 +38,7 @@ JoyCar.stop(StopIntensity.Soft)
 
 ## Servo Control
 You can set the angle (0 - 180) of the two optional servos which are connected to pin P1 and P13 of the micro:bit by using `servo(...)`.
-```blocks
+```typescript
 // Set Servo 1 to 90
 JoyCar.servo(1, 90)
 
@@ -48,7 +48,7 @@ JoyCar.servo(2, 45)
 
 ## Bias
 Both motors will probably, due to manufacturing tolerances, not spin at the very same speed. This can result in driving small curves when you intend to drive straight forward or backward. In this case you can set a global bias with `bias(...)` which will slow down the speed-signal for the specific motor. This shall compensate any speed differences.
-```blocks
+```typescript
 // Reduce Left Motor Speed permanently by 5%
 JoyCar.bias(LRDirection.Left, 5)
 
@@ -58,7 +58,7 @@ JoyCar.bias(LRDirection.Right, 2)
 
 ## PWM-Signals
 You can also send direct PWM-Signals to all four channels (Channel 2, Channel 3, Channel 4 & Channel 5) of the motor-controller by using `drivePwm(...)`.
-```blocks
+```typescript
   // Set PWM signal 255 to Channel 2
   JoyCar.drivePwm(255, 0, 0, 0)
 
@@ -71,7 +71,7 @@ You can also send direct PWM-Signals to all four channels (Channel 2, Channel 3,
 
 ## Headlights
 Turn on/off the headlights (white light from the two front LED modules) by using `light(...)`.
-```blocks
+```typescript
 // Turn on the headlights
 JoyCar.light(ToggleSwitch.On)
 
@@ -81,7 +81,7 @@ JoyCar.light(ToggleSwitch.Off)
 
 ## Brakelights
 Turn on/off the brakelight (red light from the two rear LED modules) by using `brake(...)`.
-```blocks
+```typescript
 // Turn on the brakelights
 JoyCar.brakelight(ToggleSwitch.On)
 
@@ -91,7 +91,7 @@ JoyCar.brakelight(ToggleSwitch.Off)
 
 ## Indicators
 Turn on/off the indicators (flashing orange light from the front and rear LED module on the left or right side) for a specific side with `indicator(...)`.
-```blocks
+```typescript
 // Turn on the left indicators
 JoyCar.indicator(ToggleSwitch.On, SensorLRSelection.Left)
 
@@ -100,7 +100,7 @@ JoyCar.indicator(ToggleSwitch.Off, SensorLRSelection.Right)
 ```
 ## Hazard Lights
 Turn on/off the hazard lights (flashing orange light from all LED modules) with `hazardlights(...)`.
-```blocks
+```typescript
 // Turn hazard lights on
 JoyCar.hazardlights(ToggleSwitch.On)
 
@@ -110,7 +110,7 @@ JoyCar.hazardlights(ToggleSwitch.Off)
 
 ## Reverse Lights
 Turn on/off the reverse lights (white light from the rear LED modules) with `reversinglight(...)`.
-```blocks
+```typescript
 // Turn on reverse lights
 JoyCar.reversinglight(ToggleSwitch.On)
 

@@ -3,6 +3,15 @@
 This library provides a Microsoft Makecode package for the Joy-IT Joy-Car.
 See https://joy-it.net/en/products/mb-joy-car for more details.
 
+## Smart collision detection
+
+The smart collision detection is only available if you have mounted the ultrasonic sensor in the top position, in combination with the servo motor. In this case, the ultrasonic sensor checks for obstacles in all front directions and returns if an obstacle is close or not.
+
+```typescript
+// Start collision detection
+collisionDetection()
+```
+
 ## Driving
 You can drive the Joy-Car forwards or backwards by using the `drive(...)` block. Within this block you specify the direction aswell as the speed in percent from 0 to 100.
 Both motors will be driven in the selected direction with the selected speed.

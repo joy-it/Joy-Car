@@ -8,7 +8,7 @@ See https://joy-it.net/en/products/mb-joy-car for more details.
 The smart collision detection is only available if you have mounted the ultrasonic sensor in the top position, in combination with the servo motor. In this case, the ultrasonic sensor checks for obstacles in all front directions and returns if an obstacle is close or not.
 
 |    Return value     |      Direction     |
-| ------------------- |:------------------:|
+|:-------------------:|:------------------:|
 |          0          |       nothing      |
 |          1          |       left         |
 |          2          |       middle       |     

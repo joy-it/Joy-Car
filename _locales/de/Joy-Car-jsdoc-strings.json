@@ -3,7 +3,7 @@
   "JoyCar.bias": "Setze Motorverzoegerung",
   "JoyCar.brakelight": "Bremslicht ein-/ausschalten",
   "JoyCar.buzzer": "Buzzer",
-  "JoyCar.collisionDetection": "NUR FUER OBEN MONTIERTE ULTRSCHALLSENSOREN IN KOMBINATION MIT SERVOMOTOR. Rotiert den Ultraschallsensor und gibt zurueck, ob ein Hindernis erkannt wurde, oder nicht.",
+  "JoyCar.collisionDetection": "NUR FUER OBEN MONTIERTE ULTRSCHALLSENSOREN IN KOMBINATION MIT SERVOMOTOR. Rotiert den Ultraschallsensor und gibt zurueck, ob ein Hindernis erkannt wurde, oder nicht. Dabei ist 0 - nichts erkannt, 1 - links, 2- vorne und 3- rechts.",
   "JoyCar.drive": "Fahre das Joy-Car vor/zurueck",
   "JoyCar.drivePwm": "Setze PWM-Signale",
   "JoyCar.hazardlights": "Warnblinker ein-/ausschalten",

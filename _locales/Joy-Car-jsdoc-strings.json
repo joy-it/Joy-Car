@@ -3,7 +3,7 @@
   "JoyCar.bias": "Set Bias for Motors",
   "JoyCar.brakelight": "Turn on/off the brake light",
   "JoyCar.buzzer": "Buzzer",
-  "JoyCar.collisionDetection": "ONLY FOR TOP MOUNTED ULTRASONIC-SENSOR WITH SERVO MOTOR. Rotates the ultrasonic sensor and returns true/false wether an obstacle was detected or not",
+  "JoyCar.collisionDetection": "ONLY FOR TOP MOUNTED ULTRASONIC-SENSOR WITH SERVO MOTOR. Rotates the ultrasonic sensor and returns true/false wether an obstacle was detected or not. Thereby 0 - nothing detected, 1 - left, 2- front and 3- right.",
   "JoyCar.drive": "Move Joy-Car forward or backwards with speed",
   "JoyCar.drivePwm": "Drive with PWM signal",
   "JoyCar.hazardlights": "Turn on/off hazard lights",

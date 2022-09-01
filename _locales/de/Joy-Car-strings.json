@@ -14,7 +14,7 @@
   "JoyCar.obstacleavoidance|block": "Pruefe Hindernis-Sensor %selection",
   "JoyCar.readAdc|block": "Batteriespannung auslesen",
   "JoyCar.reversinglight|block": "Rueckfahrlicht %toggle",
-  "JoyCar.servo|block": "Setze Servo aauf %angle Grad",
+  "JoyCar.servo|block": "Setze Servonr. %sensor auf %angle Grad",
   "JoyCar.sonar|block": "Pruefe Ultraschallsensor",
   "JoyCar.speed|block": "Pruefe Speed-Sensor %selection",
   "JoyCar.stop|block": "Halte Motoren an %intensity",

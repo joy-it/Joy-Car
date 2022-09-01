@@ -106,7 +106,7 @@ namespace JoyCar {
   //% block="Intelligent collision detection"
   //% subcategory="Smart functions"
   //% weight=100
-  export function collisionDetection(): boolean {
+  export function collisionDetection(): number {
       let distance = 0
       let nextServoPosition = servoAngles[0];
       if (input.runningTime() - lastCollisionDetectionRuntime >= 500) {
@@ -132,10 +132,13 @@ namespace JoyCar {
       }
 
       if(obstacleDetected) {
-          return true;
+          if (servoAngles.indexOf(lastServoPosition) - 1 == 2 || servoAngles.indexOf(lastServoPosition) - 1 == 3) return 1
+          if (servoAngles.indexOf(lastServoPosition) - 1 == -1 || servoAngles.indexOf(lastServoPosition) - 1 == 0) return 3
+          if (servoAngles.indexOf(lastServoPosition) - 1 == 1) return 2
+          return 0
       }
       else {
-          return false;
+          return 0
       }
   }
 

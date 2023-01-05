@@ -64,6 +64,13 @@ enum SensorLRSelection {
 
 //% color="#275c6b" icon="\uf1b9" weight=95
 namespace JoyCar {
+  const ultrasonicEchoPin = DigitalPin.P12;
+  const ultrasonicTriggerPin = DigitalPin.P8;
+  const buzzerPin = AnalogPin.P16;
+  const servoOnePin = AnalogPin.P1;
+  const servoTwoPin = AnalogPin.P13;
+  const adcPin = AnalogPin.P2;
+
   // Light Variables
   let strip = neopixel.create(DigitalPin.P0, 8, NeoPixelMode.RGB);
 
@@ -226,10 +233,10 @@ namespace JoyCar {
   //% angle.min=0 angle.max=180 angle.defl=90
   export function servo(servo: number, angle: number) {
       if (servo == 1) {
-          pins.servoWritePin(AnalogPin.P1, angle);
+          pins.servoWritePin(servoOnePin, angle);
       }
       else {
-          pins.servoWritePin(AnalogPin.P13, angle);
+          pins.servoWritePin(servoTwoPin, angle);
       }
   }
 
@@ -362,16 +369,12 @@ namespace JoyCar {
   //% subcategory=Sensors
   //% weight=100
   export function sonar() {
-      let echo = DigitalPin.P12;
-      let trigger = DigitalPin.P8;
       let duration = 0;
-      pins.digitalWritePin(trigger, 0);
-      control.waitMicros(2);
-      pins.digitalWritePin(trigger, 1);
+      pins.digitalWritePin(ultrasonicTriggerPin, 0);
       control.waitMicros(10);
-      pins.digitalWritePin(trigger, 0);
-      duration = pins.pulseIn(echo, PulseValue.High);
-      return (duration * ((0.034 / 2) * (30 / 18)));
+      pins.digitalWritePin(ultrasonicTriggerPin, 1);
+      duration = pins.pulseIn(ultrasonicEchoPin, PulseValue.High);
+      return (duration / 58.2);
   }
 
   /**
@@ -428,7 +431,7 @@ namespace JoyCar {
   //% subcategory="Additional Functions"
   //% weight=100
   export function buzzer(melody: Melodies, options: MelodyOptions): void {
-      pins.analogSetPitchPin(AnalogPin.P16);
+      pins.analogSetPitchPin(buzzerPin);
       music.beginMelody(music.builtInMelody(melody), options);
   }
 
@@ -442,7 +445,7 @@ namespace JoyCar {
       let uref = 0.00322265625;
       let uratio = 2.7857142;
 
-      let adcvoltage = pins.analogReadPin(AnalogPin.P2);
+      let adcvoltage = pins.analogReadPin(adcPin);
       return (uref * adcvoltage * uratio);
   }
 

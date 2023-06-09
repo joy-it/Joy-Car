@@ -1,11 +1,10 @@
 {
     "name": "Joy-Car",
-    "version": "1.0.2",
+    "version": "v1.1.3",
     "description": "MakeCode package for Joy-IT Joy-Car",
     "license": "MIT",
     "dependencies": {
         "core": "*",
-        "radio": "*",
         "neopixel": "github:microsoft/pxt-neopixel#v0.7.3"
     },
     "files": [

@@ -62,6 +62,19 @@ enum SensorLRSelection {
   Right
 }
 
+	
+/**
+* Enumeration of mainboard revisions
+*/
+enum RevisionMainboard {
+    //% block="1.3"
+    OnepThree,
+    //% block="1.2"
+    OnepTwo,
+    //% block="< 1.2"
+    OnepOne,
+}
+
 //% color="#275c6b" icon="\uf1b9" weight=95
 namespace JoyCar {
   const ultrasonicEchoPin = DigitalPin.P12;
@@ -78,6 +91,7 @@ namespace JoyCar {
   let biasR = 100;
 
   // Global Light Settings
+  let rev = 1.3;
   let lightGlobalInterval = 0;
   let lightIndicatorInterval = 0;
   let headlights = false;
@@ -106,6 +120,19 @@ namespace JoyCar {
   let lastCollisionDetectionRuntime = 0;
   let obstacleDetected = false;
 
+
+  /**
+   * Initialize Joy-Car
+  */
+  //% block="initialize Joy-Car with revision %revision"
+  //% revision.defl=RevisionMainboard.OnepThree
+  //% subcategory=Essential
+  //% weight=90
+  export function initJoyCar(revision: RevisionMainboard){
+    if (revision == RevisionMainboard.OnepOne) rev = 1.1;
+    if (revision == RevisionMainboard.OnepTwo) rev = 1.2;
+    if (revision == RevisionMainboard.OnepThree) rev = 1.3;
+  }
 
   /**
    * ONLY FOR TOP MOUNTED ULTRASONIC-SENSOR WITH SERVO MOTOR. Rotates the ultrasonic sensor and returns true/false wether an obstacle was detected or not
@@ -416,12 +443,22 @@ namespace JoyCar {
   //% subcategory=Sensors
   //% weight=70
   export function speed(selection: SensorLRSelection) {
+    if (rev >= 1.3){
       if (selection == SensorLRSelection.Left) {
-          return sensorData(0);
+        return pins.digitalReadPin(DigitalPin.P14);
       }
       else {
-          return sensorData(1);
+        return pins.digitalReadPin(DigitalPin.P15);
       }
+    }
+    else {
+      if (selection == SensorLRSelection.Left) {
+        return sensorData(0);
+      }
+      else {
+        return sensorData(1);
+      }
+    }
   }
 
   /**

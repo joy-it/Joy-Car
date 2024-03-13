@@ -33,7 +33,7 @@
   "ToggleSwitch.Off|block": "off",
   "ToggleSwitch.On|block": "on",
   "{id:category}JoyCar": "JoyCar",
-  "{id:subcategory}Essential": "Essenziell",
+  "{id:subcategory}Essential": "Essential",
   "{id:subcategory}Additional Functions": "Additional Functions",
   "{id:subcategory}LEDs": "LEDs",
   "{id:subcategory}Motors": "Motors",

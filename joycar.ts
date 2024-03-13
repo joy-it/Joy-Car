@@ -91,7 +91,7 @@ namespace JoyCar {
   let biasR = 100;
 
   // Global Light Settings
-  let rev = 1.3;
+  let rev = 1.1;
   let lightGlobalInterval = 0;
   let lightIndicatorInterval = 0;
   let headlights = false;

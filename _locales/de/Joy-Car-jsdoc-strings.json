@@ -1,5 +1,6 @@
 {
   "FRDirection": "Auflistung der vor-/zurueck Funktionalitaet",
+  "JoyCar.initJoyCar": "Initialisiere das Joy-Car",
   "JoyCar.bias": "Setze Motorverzoegerung",
   "JoyCar.brakelight": "Bremslicht ein-/ausschalten",
   "JoyCar.buzzer": "Buzzer",
@@ -17,10 +18,11 @@
   "JoyCar.sonar": "Ultraschall-Sensor pruefen",
   "JoyCar.speed": "Speed-Sensoren pruefen",
   "JoyCar.stop": "Motoren anhalten",
-  "JoyCar.turn": "Joy-Car nch links/rechts steuern. Je hoeher der Radius, desto groesser die Kurve",
+  "JoyCar.turn": "Joy-Car nach links/rechts steuern. Je hoeher der Radius, desto groesser die Kurve",
   "LRDirection": "Auflistung der Links/Rechts Funktionalitaet",
   "SensorLCRSelection": "Auflistung der Sensoren L/M/R",
   "SensorLRSelection": "Auflistung der Sensoren L/R",
   "StopIntensity": "Auflistung der Bremsintensitaet",
-  "ToggleSwitch": "Auflistung der An/Aus Funktionalitaet"
+  "ToggleSwitch": "Auflistung der An/Aus Funktionalitaet",
+  "RevisionMainboard": "Auflistung der Mainboard Revisionen"
 }

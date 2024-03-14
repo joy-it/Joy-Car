@@ -1,6 +1,7 @@
 {
   "FRDirection.Forward|block": "forward",
   "FRDirection.Reverse|block": "reverse",
+  "JoyCar.initJoyCar|block": "Initialisiere das Joy-Car mit Revision %revision",
   "JoyCar.bias|block": "bias %direction by %percent",
   "JoyCar.brakelight|block": "Toggle brakelight%toggle",
   "JoyCar.buzzer|block": "start music %melody repeating %options",
@@ -32,6 +33,7 @@
   "ToggleSwitch.Off|block": "off",
   "ToggleSwitch.On|block": "on",
   "{id:category}JoyCar": "JoyCar",
+  "{id:subcategory}Essential": "Essential",
   "{id:subcategory}Additional Functions": "Additional Functions",
   "{id:subcategory}LEDs": "LEDs",
   "{id:subcategory}Motors": "Motors",

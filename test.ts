@@ -1,3 +1,4 @@
+JoyCar.initJoyCar(RevisionMainboard.OnepThree)
 function standBy () {
     JoyCar.stop(StopIntensity.Intense)
     JoyCar.brakelight(ToggleSwitch.On)

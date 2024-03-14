@@ -1,7 +1,16 @@
 # MakeCode Package for Joy-IT Joy-Car
 
 This library provides a Microsoft Makecode package for the Joy-IT Joy-Car.
-See https://joy-it.net/en/products/mb-joy-car for more details.
+See [here](https://joy-it.net/en/products/mb-joy-car ) for more details.
+
+## Initializing Joy-Car
+
+You have to initialize the Joy-Car with your mainboard revision. You can find your revision on the backside of your mainboard. 
+Older revisions than 1.2 have no revision number on the back. This will ensure that the repository is compatible with all revisions of the mainboard.
+```typescript
+// Initialize Joy-Car with Mainboard revision 1.3
+JoyCar.initJoyCar(RevisionMainboard.OnepThree)
+```
 
 ## Smart collision detection
 

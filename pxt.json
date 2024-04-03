@@ -1,6 +1,6 @@
 {
     "name": "Joy-Car",
-    "version": "1.2.0",
+    "version": "1.2.1",
     "description": "MakeCode package for Joy-IT Joy-Car",
     "license": "MIT",
     "dependencies": {

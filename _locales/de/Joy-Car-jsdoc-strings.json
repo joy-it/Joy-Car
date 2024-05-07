@@ -19,6 +19,8 @@
   "JoyCar.speed": "Speed-Sensoren pruefen",
   "JoyCar.stop": "Motoren anhalten",
   "JoyCar.turn": "Joy-Car nach links/rechts steuern. Je hoeher der Radius, desto groesser die Kurve",
+  "JoyCar.readIOExpander": "Daten vom IO-Expander lesen",
+  "JoyCar.writeIOExpander": "NUR REVISION 1.3 oder NEUER kann Pin 0 und Pin 1 verwenden - Pin 7 auf IO-Expander beschreiben",
   "LRDirection": "Auflistung der Links/Rechts Funktionalitaet",
   "SensorLCRSelection": "Auflistung der Sensoren L/M/R",
   "SensorLRSelection": "Auflistung der Sensoren L/R",

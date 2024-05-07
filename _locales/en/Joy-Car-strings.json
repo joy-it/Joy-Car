@@ -20,6 +20,8 @@
   "JoyCar.speed|block": "Check %selection speed-sensor",
   "JoyCar.stop|block": "Stop motors%intensity",
   "JoyCar.turn|block": "drive%orientation %direction |at %speed| with radius-level %radius",
+  "JoyCar.readIOExpander|block": "Read data from IO expander",
+  "JoyCar.writeIOExpander|block": "Write on Pin %pin of the IO expander with %value",
   "JoyCar|block": "JoyCar",
   "LRDirection.Left|block": "left",
   "LRDirection.Right|block": "right",

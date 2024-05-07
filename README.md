@@ -39,6 +39,12 @@ JoyCar.drive(FRDirection.Forward, 100)
 
 // Move the Joy-Car backwards at 40% speed
 JoyCar.drive(FRDirection.Reverse, 40)
+
+// Turn the Joy-Car left at 20% speed
+JoyCar.drive(FRLRDirection.Left, 20)
+
+// Turn the Joy-Car right at 60% speed
+JoyCar.drive(FRLRDirection.Right, 60)
 ```
 
 ## Turning
@@ -200,6 +206,23 @@ Read the current battery voltage from the ADC on the AnalogPin2 by using `readAd
 ```typescript
 // Print battery voltage to console
 serial.writeString(JoyCar.readAdc());
+```
+
+## Read IO Expander
+Read values from IO expander with `readIOExpander()`.
+```typescript
+// Print values from IO expander to console
+serial.writeString(JoyCar.readIOExpander());
+```
+
+## Write IO Expander
+Write values on the free pins from the IO expander with `writeIOExpander()`. You can write on pin 7 or with revision 1.3 or newer also on pin 0 and pin 1. 
+```typescript
+// Set pin 7 from the IO expander high
+JoyCar.writeIOExpander(IOExpanderPin.Pin7, 1);
+
+// Set pin 1 from the IO expander low (only possible with Rev 1.3 or newer)
+JoyCar.writeIOExpander(IOExpanderPin.Pin1, 0);
 ```
 
 ## Supported targets

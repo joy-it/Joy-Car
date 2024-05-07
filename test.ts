@@ -41,7 +41,7 @@ function obstacleAvoidance () {
         basic.pause(200)
         JoyCar.brakelight(ToggleSwitch.Off)
         JoyCar.reversinglight(ToggleSwitch.On)
-        JoyCar.drive(FRDirection.Reverse, 50)
+        JoyCar.drive(FRLRDirection.Reverse, 50)
         basic.pause(300)
         JoyCar.reversinglight(ToggleSwitch.Off)
         JoyCar.turn(FRDirection.Forward, LRDirection.Right, 40, 0)
@@ -52,7 +52,7 @@ function obstacleAvoidance () {
         basic.pause(200)
         JoyCar.brakelight(ToggleSwitch.Off)
         JoyCar.reversinglight(ToggleSwitch.On)
-        JoyCar.drive(FRDirection.Reverse, 50)
+        JoyCar.drive(FRLRDirection.Reverse, 50)
         basic.pause(300)
         JoyCar.reversinglight(ToggleSwitch.Off)
         JoyCar.turn(FRDirection.Forward, LRDirection.Left, 40, 0)
@@ -63,7 +63,7 @@ function obstacleAvoidance () {
         basic.pause(200)
         JoyCar.brakelight(ToggleSwitch.Off)
         JoyCar.reversinglight(ToggleSwitch.On)
-        JoyCar.drive(FRDirection.Reverse, 50)
+        JoyCar.drive(FRLRDirection.Reverse, 50)
         basic.pause(100)
         JoyCar.reversinglight(ToggleSwitch.Off)
         JoyCar.stop(StopIntensity.Soft)
@@ -73,7 +73,7 @@ function obstacleAvoidance () {
         JoyCar.stop(StopIntensity.Soft)
         basic.pause(500)
     } else {
-        JoyCar.drive(FRDirection.Forward, 50)
+        JoyCar.drive(FRLRDirection.Forward, 50)
     }
 }
 input.onButtonPressed(Button.A, function () {
@@ -98,7 +98,7 @@ function lineTracking () {
     } else if (!(JoyCar.linefinder(SensorLCRSelection.Left)) && (!(JoyCar.linefinder(SensorLCRSelection.Center)) && JoyCar.linefinder(SensorLCRSelection.Right))) {
         JoyCar.turn(FRDirection.Forward, LRDirection.Right, 50, 0)
     } else if (!(JoyCar.linefinder(SensorLCRSelection.Left)) && (JoyCar.linefinder(SensorLCRSelection.Center) && !(JoyCar.linefinder(SensorLCRSelection.Right)))) {
-        JoyCar.drive(FRDirection.Forward, 50)
+        JoyCar.drive(FRLRDirection.Forward, 50)
     } else if (!(JoyCar.linefinder(SensorLCRSelection.Left)) && (JoyCar.linefinder(SensorLCRSelection.Center) && JoyCar.linefinder(SensorLCRSelection.Right))) {
         JoyCar.turn(FRDirection.Forward, LRDirection.Right, 50, 2)
     } else if (JoyCar.linefinder(SensorLCRSelection.Left) && (!(JoyCar.linefinder(SensorLCRSelection.Center)) && !(JoyCar.linefinder(SensorLCRSelection.Right)))) {
@@ -109,7 +109,7 @@ function lineTracking () {
     } else if (JoyCar.linefinder(SensorLCRSelection.Left) && (JoyCar.linefinder(SensorLCRSelection.Center) && !(JoyCar.linefinder(SensorLCRSelection.Right)))) {
         JoyCar.turn(FRDirection.Forward, LRDirection.Left, 50, 2)
     } else if (JoyCar.linefinder(SensorLCRSelection.Left) && (JoyCar.linefinder(SensorLCRSelection.Center) && JoyCar.linefinder(SensorLCRSelection.Right))) {
-        JoyCar.drive(FRDirection.Forward, 50)
+        JoyCar.drive(FRLRDirection.Forward, 50)
     } else {
         JoyCar.stop(StopIntensity.Intense)
         JoyCar.brakelight(ToggleSwitch.On)

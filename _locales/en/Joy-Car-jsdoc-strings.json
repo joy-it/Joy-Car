@@ -1,5 +1,6 @@
 {
   "FRDirection": "Enumeration of forward/reverse directions",
+  "FRLRDirection": "Listing of the forward/backward/left/right functionality",
   "JoyCar.bias": "Set Bias for Motors",
   "JoyCar.brakelight": "Turn on/off the brake light",
   "JoyCar.buzzer": "Buzzer",

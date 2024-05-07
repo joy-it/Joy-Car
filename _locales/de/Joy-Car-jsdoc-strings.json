@@ -1,5 +1,6 @@
 {
   "FRDirection": "Auflistung der vor-/zurueck Funktionalitaet",
+  "FRLRDirection": "Auflistung der vor/zurueck/links/rechts Funktionalitaet",
   "JoyCar.initJoyCar": "Initialisiere das Joy-Car",
   "JoyCar.bias": "Setze Motorverzoegerung",
   "JoyCar.brakelight": "Bremslicht ein-/ausschalten",

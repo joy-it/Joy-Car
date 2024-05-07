@@ -516,8 +516,7 @@ namespace JoyCar {
     }
 
     /**
-        * ONLY REVISION 1.3 OR NEWER can use Pin 0 and Pin 1
-        * Write data (Pin 7) on IO expander
+        * ONLY REVISION 1.3 OR NEWER can use Pin 0 and Pin 1 - Write data (Pin 7) on IO expander
         */
     //% block="Write on Pin %pin of the IO expander with %value"
     //% subcategory="Additional Functions"

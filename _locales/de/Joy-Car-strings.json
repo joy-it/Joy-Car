@@ -4,7 +4,7 @@
   "FRLRDirection.Forward|block": "Vor",
   "FRLRDirection.Reverse|block": "Zurueck",
   "FRLRDirection.Left|block": "Links",
-  "FRLRDirection.Right|block": "Right",
+  "FRLRDirection.Right|block": "Rechts",
   "JoyCar.initJoyCar|block": "Initialisiere das Joy-Car mit Revision %revision",
   "JoyCar.bias|block": "Motorverzoegerung %direction um %percent\\%",
   "JoyCar.brakelight|block": "Bremslicht %toggle",

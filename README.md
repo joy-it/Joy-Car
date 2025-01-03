@@ -192,13 +192,19 @@ JoyCar.speed(SensorLRSelection.Right)
 ```
 
 ## Buzzer
-Play predefined melodies with the buzzer with `buzzer()`. You can also specifiy repeat options.
+Play predefined sound with buzzer for a certain amount of microseconds with `buzzer_sound()`.
+```typescript
+// Play the C for 1 second
+JoyCar.buzzer_sound(Note.C, 1000)
+```
+
+Play predefined melodies with the buzzer with `buzzer_melody()`. You can also specifiy repeat options.
 ```typescript
 // Play the Dadadadum Sound once
-JoyCar.buzzer(Melodies.Dadadadum, MelodyOptions.Once)
+JoyCar.buzzer_melody(Melodies.Dadadadum, MelodyOptions.Once)
 
 // Play the Nyan Sound on repeat
-JoyCar.buzzer(Melodies.Nyan, MelodyOptions.Forever)
+JoyCar.buzzer_melody(Melodies.Nyan, MelodyOptions.Forever)
 ```
 
 ## Read Battery Voltage

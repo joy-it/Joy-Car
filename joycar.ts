@@ -491,14 +491,28 @@ namespace JoyCar {
     }
 
     /**
-     * Buzzer
+     * Buzzer Melody
      */
     //% block="start music %melody repeating %options"
     //% subcategory="Additional Functions"
     //% weight=100
-    export function buzzer(melody: Melodies, options: MelodyOptions): void {
+    export function buzzer_melody(melody: Melodies, options: MelodyOptions): void {
         pins.analogSetPitchPin(buzzerPin);
         music.beginMelody(music.builtInMelody(melody), options);
+    }
+
+    /**
+     * Buzzer sound
+     */
+    //% block="play sound %sound %time ms"
+    //% subcategory="Additional Functions"
+    //% weight=110
+    //% time.min=0 time.max=10000 time.defl=1000
+    export function buzzer_sound(sound: Note, time: number): void {
+        pins.analogSetPitchPin(buzzerPin);
+        music.ringTone(sound);
+        control.waitMicros(time);
+        music.stopAllSounds();
     }
 
     /**

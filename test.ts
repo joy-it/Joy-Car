@@ -142,7 +142,7 @@ basic.pause(300)
 JoyCar.brakelight(ToggleSwitch.Off)
 basic.pause(300)
 hazardLights()
-JoyCar.buzzer(Melodies.Dadadadum, MelodyOptions.Once)
+JoyCar.buzzer_melody(Melodies.Dadadadum, MelodyOptions.Once)
 basic.forever(function () {
     if (menuMode == 0) {
         standBy()

@@ -99,14 +99,27 @@ enum IOExpanderPin {
     Pin7,
 }
 
+/**
+* Enumeration of compatible controller
+*/
+enum ControllerType{
+    //% block="micro:bit"
+    Microbit,
+    //% block="Calliope"
+    Calliope,
+}
+
 //% color="#275c6b" icon="\uf1b9" weight=95
 namespace JoyCar {
-    const ultrasonicEchoPin = DigitalPin.P12;
+    let ultrasonicEchoPin = DigitalPin.P12;
     const ultrasonicTriggerPin = DigitalPin.P8;
-    const buzzerPin = AnalogPin.P16;
-    const servoOnePin = AnalogPin.P1;
-    const servoTwoPin = AnalogPin.P13;
-    const adcPin = AnalogPin.P2;
+    let buzzerPin = DigitalPin.P16;
+    let servoOnePin = AnalogPin.P1;
+    let servoTwoPin = AnalogPin.P13;
+    let adcPin = AnalogPin.P2;
+    //  only relevant for revision 1.3
+    let speedLeftPin = DigitalPin.P14
+    let speedRightPin = DigitalPin.P15
 
     // Light Variables
     let strip = neopixel.create(DigitalPin.P0, 8, NeoPixelMode.RGB);
@@ -143,6 +156,19 @@ namespace JoyCar {
     let lastServoPosition = servoAngles[0];
     let lastCollisionDetectionRuntime = 0;
     let obstacleDetected = false;
+
+    /**
+     * Set up your controller
+    */
+    //% block="Initialize your microcontroller %controller"
+    //% revision.defl=ControllerType.Microbit
+    //% subcategory=Essential
+    //% weight=90
+    export function initController(controller: ControllerType) {
+        if (controller == ControllerType.Calliope) {
+            buzzerPin = DigitalPin.P3;
+        }
+    }
 
 
     /**
@@ -474,10 +500,10 @@ namespace JoyCar {
     export function speed(selection: SensorLRSelection) {
         if (rev >= 1.3) {
             if (selection == SensorLRSelection.Left) {
-                return pins.digitalReadPin(DigitalPin.P14);
+                return pins.digitalReadPin(speedLeftPin);
             }
             else {
-                return pins.digitalReadPin(DigitalPin.P15);
+                return pins.digitalReadPin(speedRightPin);
             }
         }
         else {
@@ -719,6 +745,11 @@ namespace JoyCar {
 
         for (let i = 0; i < 8; i++) {
             bin += ((byte[0] >> i) & 1).toString();
+        }
+        
+        if (rev >= 1.3) {
+            bin = bin.slice(2) + bin.slice(0, 2);
+            bin = pins.digitalReadPin(speedLeftPin).toString() + pins.digitalReadPin(speedRightPin).toString() + bin;
         }
         return bin
     }

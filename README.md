@@ -234,6 +234,7 @@ JoyCar.writeIOExpander(IOExpanderPin.Pin1, 0);
 ## Supported targets
 
 * for PXT/microbit
+* for PXT/calliope
 
 ## License
 

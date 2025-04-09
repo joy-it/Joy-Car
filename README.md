@@ -12,6 +12,14 @@ Older revisions than 1.2 have no revision number on the back. This will ensure t
 JoyCar.initJoyCar(RevisionMainboard.OnepThree)
 ```
 
+## Initializing the microcontroller you use
+
+You have to initialize the microcontroller with which you use the Joy-Car. Therefore, you can use this library with the micro:bit and the Calliope.
+```typescript
+// Initialize Joy-Car with the Calliope
+JoyCar.initController(ControllerType.Calliope)
+```
+
 ## Smart collision detection
 
 The smart collision detection is only available if you have mounted the ultrasonic sensor in the top position, in combination with the servo motor. In this case, the ultrasonic sensor checks for obstacles in all front directions and returns if an obstacle is close or not.
@@ -234,6 +242,7 @@ JoyCar.writeIOExpander(IOExpanderPin.Pin1, 0);
 ## Supported targets
 
 * for PXT/microbit
+* for PXT/calliope
 
 ## License
 

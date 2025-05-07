@@ -1,6 +1,7 @@
 {
   "FRDirection": "Auflistung der vor-/zurueck Funktionalitaet",
   "FRLRDirection": "Auflistung der vor/zurueck/links/rechts Funktionalitaet",
+  "ControllerType": "Auflistung der moeglichen Controller in MakeCode",
   "JoyCar.initJoyCar": "Initialisiere das Joy-Car",
   "JoyCar.initController": "Initialisiere deinen Mikrocontroller",
   "JoyCar.bias": "Setze Motorverzoegerung",

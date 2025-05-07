@@ -7,8 +7,6 @@
   "FRLRDirection.Right|block": "right",
   "JoyCar.initJoyCar|block": "Initialize the Joy-Car with revision %revision",
   "JoyCar.initController|block": "Initialize your microcontroller %controller",
-  "ControllerType.Calliope|block": "Calliope",
-  "ControllerType.Microbit|block": "microbit",
   "JoyCar.bias|block": "bias %direction by %percent",
   "JoyCar.brakelight|block": "Toggle brakelight%toggle",
   "JoyCar.buzzer_melody|block": "start music %melody repeating %options",

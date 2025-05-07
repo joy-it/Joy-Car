@@ -3,6 +3,7 @@
   "FRLRDirection": "Listing of the forward/backward/left/right functionality",
   "JoyCar.initJoyCar": "Initialize the Joy-Car",
   "JoyCar.initController": "Initialize your microcontroller",
+  "ControllerType": "Enumeration of possible controller in MakeCode",
   "JoyCar.bias": "Set Bias for Motors",
   "JoyCar.brakelight": "Turn on/off the brake light",
   "JoyCar.buzzer_melody": "play melody on Buzzer ",

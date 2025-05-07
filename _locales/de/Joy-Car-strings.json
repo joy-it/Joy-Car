@@ -8,7 +8,7 @@
   "JoyCar.initJoyCar|block": "Initialisiere das Joy-Car mit Revision %revision",
   "JoyCar.initController|block": "Initialisiere deinen Mikrocontroller %controller",
   "ControllerType.Calliope|block": "Calliope",
-  "ControllerType.Microbit|block": "micro:bit",
+  "ControllerType.Microbit|block": "microbit",
   "JoyCar.bias|block": "Motorverzoegerung %direction um %percent\\%",
   "JoyCar.brakelight|block": "Bremslicht %toggle",
   "JoyCar.buzzer_melody|block": "Spiele Musik %melody wiederhole %options",

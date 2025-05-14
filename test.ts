@@ -1,4 +1,5 @@
 JoyCar.initJoyCar(RevisionMainboard.OnepThree)
+JoyCar.initController(ControllerType.Microbit)
 function standBy () {
     JoyCar.stop(StopIntensity.Intense)
     JoyCar.brakelight(ToggleSwitch.On)
@@ -142,7 +143,8 @@ basic.pause(300)
 JoyCar.brakelight(ToggleSwitch.Off)
 basic.pause(300)
 hazardLights()
-JoyCar.buzzer_melody(Melodies.Dadadadum, MelodyOptions.Once)
+JoyCar.setup_buzzer()
+music._playDefaultBackground(music.builtInPlayableMelody(Melodies.Dadadadum), music.PlaybackMode.InBackground)
 basic.forever(function () {
     if (menuMode == 0) {
         standBy()

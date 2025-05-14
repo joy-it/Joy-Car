@@ -18,10 +18,11 @@
         "test.ts"
     ],
     "targetVersions": {
-        "target": "6.0.24",
+        "target": "7.0.61",
         "targetId": "microbit"
     },
     "supportedTargets": [
+        "calliopemini",
         "microbit"
     ],
     "preferredEditor": "tsprj"

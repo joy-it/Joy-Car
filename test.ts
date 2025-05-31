@@ -144,7 +144,8 @@ JoyCar.brakelight(ToggleSwitch.Off)
 basic.pause(300)
 hazardLights()
 JoyCar.setup_buzzer()
-music._playDefaultBackground(music.builtInPlayableMelody(Melodies.Dadadadum), music.PlaybackMode.InBackground)
+// Following line just for micro:bit
+//music._playDefaultBackground(music.builtInPlayableMelody(Melodies.Dadadadum), music.PlaybackMode.InBackground)
 basic.forever(function () {
     if (menuMode == 0) {
         standBy()
